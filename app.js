@@ -13,6 +13,10 @@ app.use(express.static(__dirname));
 
 app.use('/files', indexRoutes);
 
+app.get('/', (req, res, next) => {
+  res.send("Everything's fine");
+});
+
 app.use((error, req, res, next) => {
   console.log(error);
   const status = error.statusCode || 500;
