@@ -36,7 +36,7 @@ mongoose
     }
   )
   .then((result) => {
-    app.listen(5000);
+    app.listen(port);
     console.log(`server started at ${port}`);
   })
   .catch((err) => console.log(err));
