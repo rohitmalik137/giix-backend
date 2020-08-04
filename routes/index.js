@@ -58,28 +58,15 @@ router.post('/upload', upload.array('filesArray', 10), (req, res, next) => {
           });
       });
   }
+});
 
-  // const file = new Files({
-  //   files: reqFiles,
-  //   filePath: url,
-  // });
-
-  // file
-  //   .save()
-  //   .then((result) => {
-  //     res.status(201).json({
-  //       message: 'Done upload!',
-  //       userCreated: {
-  //         _id: result._id,
-  //       },
-  //     });
-  //   })
-  //   .catch((err) => {
-  //     console.log(err),
-  //       res.status(500).json({
-  //         error: err,
-  //       });
-  //   });
+router.post('/updatename', (req, res, next) => {
+  const id = req.body.id;
+  const customName = req.body.name;
+  Files.findById(id).then((data) => {
+    data.customName = customName;
+    return data.save();
+  });
 });
 
 router.get('/', (req, res, next) => {

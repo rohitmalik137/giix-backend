@@ -11,6 +11,10 @@ const filesSchema = new Schema(
       type: String,
       required: true,
     },
+    customName: {
+      type: String,
+      default: '',
+    },
   },
   {
     timestamps: true,

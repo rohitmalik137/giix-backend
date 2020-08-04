@@ -3,8 +3,6 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-// const feedRoutes = require('./routes/feed');
-// const authRoutes = require('./routes/auth');
 const indexRoutes = require('./routes/index');
 
 const app = express();
@@ -14,7 +12,6 @@ app.use(cors());
 app.use(express.static(__dirname));
 
 app.use('/files', indexRoutes);
-// app.use('/auth', authRoutes);
 
 app.use((error, req, res, next) => {
   console.log(error);
